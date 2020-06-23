@@ -111,7 +111,7 @@ static CDVWKInAppBrowser* instance = nil;
         } else if ([target isEqualToString:kInAppBrowserTargetSystem]) {
             [self openInSystem:absoluteUrl];
         } else { // _blank or anything else
-            [self openInInAppBrowser:absoluteUrl withOptions:options  withHeaders:headers];
+            [self openInInAppBrowser:absoluteUrl withOptions:options withHeaders:headers];
         }
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -348,7 +348,7 @@ static CDVWKInAppBrowser* instance = nil;
     });
 }
 
-- (void)openInCordovaWebView:(NSURL*)url withOptions:(NSString*)options withHeaders:(NSString*)headers
+- (void)openInCordovaWebView:(NSURL*)url withOptions:(NSString*)options  withHeaders:(NSString*)headers
 {
     NSMutableURLRequest* request = [CDVInAppBrowserOptions createRequest:url headers:headers];
     // the webview engine itself will filter for this according to <allow-navigation> policy
@@ -1085,7 +1085,7 @@ BOOL isExiting = FALSE;
     if ([url.scheme isEqualToString:@"file"]) {
         [self.webView loadFileURL:url allowingReadAccessToURL:url];
     } else {
-         NSMutableURLRequest* request = [CDVInAppBrowserOptions createRequest:url headers:headers];
+         NSMutableURLRequest* request = [CDVInAppBrowserOptions createRequest:url headers:headers]; 
         [self.webView loadRequest:request];
     }
 }
