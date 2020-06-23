@@ -94,6 +94,7 @@ static CDVWKInAppBrowser* instance = nil;
     NSString* url = [command argumentAtIndex:0];
     NSString* target = [command argumentAtIndex:1 withDefault:kInAppBrowserTargetSelf];
     NSString* options = [command argumentAtIndex:2 withDefault:@"" andClass:[NSString class]];
+    NSString* headers = [command argumentAtIndex:3 withDefault:@"" andClass:[NSString class]];
     
     self.callbackId = command.callbackId;
     
